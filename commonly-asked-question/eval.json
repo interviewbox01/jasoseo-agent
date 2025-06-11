@@ -1,0 +1,93 @@
+{
+  "sample_question_generation_eval": {
+    "task_definition": {
+      "description": "Based on the user's input (company, job, experience level) and a predefined list of common interview questions, select and refine 3 sample questions that are most relevant to the user's situation.",
+      "input": {
+        "job_title": "string",
+        "company_name": "string",
+        "experience_level": "신입 | 경력 | 인턴 | 기타",
+        "common_questions": ["string", "..."]
+      },
+      "output": {
+        "sample_questions": ["string", "string", "string"]
+      }
+    },
+    "examples": [
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "토스 (비바리퍼블리카)",
+          "experience_level": "신입",
+          "common_questions": ["자기소개를 해보세요", "지원 동기가 무엇인가요", "가장 도전적인 경험은 무엇인가요", "입사 후 포부는 무엇인가요"]
+        },
+        "output": {
+          "sample_questions": [
+            "수많은 핀테크 기업 중 왜 '토스'에 지원하셨나요?",
+            "개발자로서 가장 크게 성장했던 기술적 도전 경험은 무엇인가요?",
+            "본인이 토스의 기술 문화(자율과 책임, 높은 동료 신뢰 등)와 잘 맞는다고 생각하는 이유를 경험을 바탕으로 소개해 주세요."
+          ]
+        }
+      },
+      {
+        "input": {
+          "job_title": "식품마케팅",
+          "company_name": "CJ제일제당",
+          "experience_level": "경력",
+          "common_questions": ["자기소개를 해보세요", "지원 동기가 무엇인가요", "본인의 강점은 무엇인가요", "성공 경험을 말해주세요"]
+        },
+        "output": {
+          "sample_questions": [
+            "CJ제일제당의 여러 브랜드 중 특별히 기여하고 싶은 브랜드와 그 이유는 무엇인가요?",
+            "성공적으로 이끌었던 마케팅 캠페인 중, 본인의 역할과 성과를 구체적으로 설명해주세요.",
+            "최근 식품업계 트렌드(HMR, 헬시플레저 등)와 연관지어 입사 후 어떤 마케팅을 펼치고 싶으신가요?"
+          ]
+        }
+      },
+      {
+        "input": {
+          "job_title": "A&R",
+          "company_name": "하이브",
+          "experience_level": "인턴",
+          "common_questions": ["지원 동기가 무엇인가요", "성격의 장단점을 말해주세요", "입사 후 포부는 무엇인가요", "마지막으로 하고 싶은 말은?"]
+        },
+        "output": {
+          "sample_questions": [
+            "하이브의 음악/아티스트가 본인에게 어떤 의미인지, 그리고 A&R 직무에 왜 지원했는지 연결지어 설명해주세요.",
+            "A&R 직무에 필요한 역량 중 본인이 가장 자신 있는 것과 보완하고 싶은 점은 무엇인가요?",
+            "인턴으로서 하이브에서 가장 배우고 싶은 점은 무엇이며, 어떻게 팀에 기여하고 싶나요?"
+          ]
+        }
+      },
+      {
+        "input": {
+          "job_title": "경영기획",
+          "company_name": "현대건설",
+          "experience_level": "신입",
+          "common_questions": ["지원 동기가 무엇인가요", "성장 과정을 말해주세요", "가장 힘들었던 경험은 무엇인가요", "존경하는 인물은 누구인가요"]
+        },
+        "output": {
+          "sample_questions": [
+            "건설 산업의 특성을 고려하여 현대건설에 지원한 동기를 말씀해주세요.",
+            "팀 프로젝트에서 갈등을 해결하거나 어려운 목표를 달성했던 경험이 있다면 구체적으로 설명해주세요.",
+            "경영기획 직무 담당자로서 현대건설의 미래 성장에 어떻게 기여하고 싶으신가요?"
+          ]
+        }
+      },
+      {
+        "input": {
+          "job_title": "해외영업",
+          "company_name": "삼성전자",
+          "experience_level": "경력",
+          "common_questions": ["경력 위주로 자기소개를 해보세요", "이직 사유가 무엇인가요", "성공 경험을 말해주세요", "실패 경험을 말해주세요"]
+        },
+        "output": {
+          "sample_questions": [
+            "가장 성공적이었던 해외 수주/영업 경험과 그 과정에서 본인의 핵심적인 역할은 무엇이었나요?",
+            "삼성전자의 반도체/가전 사업부 중 본인의 전문성을 가장 잘 발휘할 수 있는 분야는 어디라고 생각하며, 그 이유는 무엇입니까?",
+            "해외 고객과의 문화적 차이나 어려운 협상 상황을 극복했던 사례가 있다면 말씀해주세요."
+          ]
+        }
+      }
+    ]
+  }
+}
