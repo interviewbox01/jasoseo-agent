@@ -1,0 +1,90 @@
+{
+  "industry_classification_eval": {
+    "task_definition": {
+      "description": "Classify the company's industry based on job title and company name. The output must be an array containing one or more relevant 'tagId's from the provided industry list.",
+      "input": {
+        "job_title": "string",
+        "company_name": "string"
+      },
+      "output": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "description": "A valid tagId from the industryCategories list."
+        }
+      }
+    },
+    "examples": [
+      {
+        "input": {
+          "job_title": "경영기획",
+          "company_name": "삼성전자"
+        },
+        "output": ["semiconductor", "electronics-home"]
+      },
+      {
+        "input": {
+          "job_title": "경영기획",
+          "company_name": "신한은행"
+        },
+        "output": ["bank"]
+      },
+      {
+        "input": {
+          "job_title": "온라인마케팅",
+          "company_name": "쿠팡"
+        },
+        "output": ["e-commerce", "platform-portal"]
+      },
+      {
+        "input": {
+          "job_title": "온라인마케팅",
+          "company_name": "아모레퍼시픽"
+        },
+        "output": ["fashion-beauty", "fmcg-beverage"]
+      },
+      {
+        "input": {
+          "job_title": "HRM(인사운영)",
+          "company_name": "현대건설"
+        },
+        "output": ["construction-engineering"]
+      },
+      {
+        "input": {
+          "job_title": "HRM(인사운영)",
+          "company_name": "하이브"
+        },
+        "output": ["entertainment"]
+      },
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "토스 (비바리퍼블리카)"
+        },
+        "output": ["fintech", "platform-portal"]
+      },
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "넥슨"
+        },
+        "output": ["game"]
+      },
+      {
+        "input": {
+          "job_title": "해외영업",
+          "company_name": "삼성바이오로직스"
+        },
+        "output": ["bio-cmo", "pharma-new-drug"]
+      },
+      {
+        "input": {
+          "job_title": "해외영업",
+          "company_name": "HMM (에이치엠엠)"
+        },
+        "output": ["shipping"]
+      }
+    ]
+  }
+}
