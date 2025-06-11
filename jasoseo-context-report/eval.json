@@ -1,0 +1,123 @@
+{
+  "context_report_generation_eval": {
+    "task_definition": {
+      "description": "Generate a structured context report based on the user's input (job, company, etc.). The output must be a JSON object following the specified schema, providing essential background information for writing a '자소서'. The content should be synthesized from public information as if processed by a web search and LLM pipeline.",
+      "input": {
+        "job_title": "string",
+        "company_name": "string",
+        "experience_level": "신입 | 경력 | 인턴 | 기타"
+      },
+      "output_schema": {
+        "company_profile": {
+          "name": "string",
+          "vision_mission": "string",
+          "core_values": ["string", "..."],
+          "talent_philosophy": "string",
+          "recent_news_summary": "string",
+          "main_products_services": ["string", "..."]
+        },
+        "position_analysis": {
+          "role_summary": "string",
+          "required_skills": {
+            "hard": ["string", "..."],
+            "soft": ["string", "..."]
+          },
+          "keywords": ["string", "..."]
+        },
+        "industry_context": {
+          "trends": ["string", "..."],
+          "competitors": ["string", "..."]
+        }
+      }
+    },
+    "examples": [
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "토스 (비바리퍼블리카)",
+          "experience_level": "신입"
+        },
+        "output": {
+          "company_profile": {
+            "name": "토스 (비바리퍼블리카)",
+            "vision_mission": "금융의 모든 순간을 쉽고 간편하게 만드는 것을 목표로 하는 기술 기반 금융 혁신 기업입니다.",
+            "core_values": ["Customer Obsession (고객 중심)", "Excellence (탁월함)", "Radical Transparency (극도의 투명성)", "Freedom and Responsibility (자율과 책임)"],
+            "talent_philosophy": "스스로 문제를 정의하고 해결하며, 동료와 투명하게 소통하여 최고의 성과를 만드는 인재를 지향합니다.",
+            "recent_news_summary": "토스뱅크, 토스증권 등 종합 금융 플랫폼으로의 확장을 넘어, 알뜰폰(MVNO) 사업 진출 등 비금융 분야로 서비스를 다각화하며 사용자 경험을 혁신하고 있습니다.",
+            "main_products_services": ["토스 (간편송금, 결제)", "토스뱅크", "토스증권", "토스플레이스"]
+          },
+          "position_analysis": {
+            "role_summary": "대용량 트래픽을 처리하는 안정적이고 확장 가능한 금융 서비스의 백엔드 API를 개발하고 운영합니다. 복잡한 금융 문제를 기술로 해결하며 최고의 사용자 경험을 제공하는 데 기여합니다.",
+            "required_skills": {
+              "hard": ["Java/Kotlin", "Spring Framework", "RDBMS/NoSQL", "MSA (Microservice Architecture) 이해"],
+              "soft": ["문제 해결 능력", "협업 및 커뮤니케이션", "학습 및 성장 의지", "높은 수준의 책임감"]
+            },
+            "keywords": ["핀테크", "대용량 트래픽", "MSA", "결제 시스템", "API", "금융 플랫폼"]
+          },
+          "industry_context": {
+            "trends": ["간편결제 시장의 지속적 성장", "마이데이터 사업 활성화", "빅테크 기업의 금융업 진출 가속화"],
+            "competitors": ["카카오페이", "네이버파이낸셜"]
+          }
+        }
+      },
+      {
+        "input": {
+          "job_title": "식품마케팅",
+          "company_name": "CJ제일제당",
+          "experience_level": "신입"
+        },
+        "output": {
+          "company_profile": {
+            "name": "CJ제일제당",
+            "vision_mission": "글로벌 No.1 식품 & 바이오 기업으로 성장하여 전 세계에 한국의 식문화를 전파하는 것을 비전으로 합니다.",
+            "core_values": ["인재", "상생", "정직", "창의"],
+            "talent_philosophy": "끊임없이 도전하고 성장하며, 맡은 분야에서 최고를 추구하는 '하고잡이' 인재를 선호합니다.",
+            "recent_news_summary": "'비비고' 브랜드를 중심으로 K-푸드의 글로벌 영토 확장을 가속화하고 있으며, 북미 및 유럽 시장 공략을 강화하고 식물성 식품(Plant-based) 포트폴리오를 확대하고 있습니다.",
+            "main_products_services": ["비비고 (만두, 김치 등)", "햇반", "스팸", "각종 조미료 및 소스류"]
+          },
+          "position_analysis": {
+            "role_summary": "담당 브랜드의 마케팅 전략을 수립하고 실행합니다. 시장 및 소비자 데이터 분석을 기반으로 신제품 런칭, 광고 캠페인, 프로모션 등을 기획하고 운영하여 브랜드 성장을 주도합니다.",
+            "required_skills": {
+              "hard": ["데이터 분석 능력 (GA, SQL 등)", "시장 조사 및 분석", "마케팅 전략 수립"],
+              "soft": ["창의적 사고", "트렌드 민감성", "원활한 커뮤니케이션", "결과 지향적 태도"]
+            },
+            "keywords": ["FMCG", "브랜드 마케팅", "K-푸드", "신제품 런칭", "소비자 조사", "데이터 기반"]
+          },
+          "industry_context": {
+            "trends": ["HMR(가정간편식) 시장의 급성장", "건강과 지속가능성을 중시하는 '헬시플레저' 트렌드 확산", "온라인 채널 중심의 유통 구조 변화"],
+            "competitors": ["대상 청정원", "오뚜기", "농심"]
+          }
+        }
+      },
+      {
+        "input": {
+          "job_title": "A&R",
+          "company_name": "하이브",
+          "experience_level": "인턴"
+        },
+        "output": {
+          "company_profile": {
+            "name": "하이브 (HYBE)",
+            "vision_mission": "'We believe in music'이라는 미션 아래, 음악에 기반한 세계 최고의 엔터테인먼트 라이프스타일 플랫폼 기업을 지향합니다.",
+            "core_values": ["팬 중심 (Fan-centric)", "혁신 (Innovation)", "진정성 (Authenticity)", "지속가능성 (Sustainability)"],
+            "talent_philosophy": "음악과 콘텐츠에 대한 깊은 이해와 열정을 바탕으로, 산업의 경계를 넘어 새로운 가치를 창출하는 전문가를 추구합니다.",
+            "recent_news_summary": "멀티 레이블 체제를 강화하고, 팬덤 플랫폼 '위버스(Weverse)'를 통해 팬 비즈니스를 확장하고 있습니다. 또한 게임, 웹툰 등 IP(지적재산권)를 활용한 사업 다각화에 집중하고 있습니다.",
+            "main_products_services": ["음반 및 음원 제작/유통", "아티스트 매니지먼트 (BTS, 세븐틴 등)", "위버스 (Weverse) 플랫폼", "공연 및 MD 사업"]
+          },
+          "position_analysis": {
+            "role_summary": "신인 아티스트 발굴 및 기존 아티스트의 앨범 컨셉 기획, 국내외 작곡가와의 협업을 통한 곡 수급, 녹음 등 음반 제작 과정 전반을 지원하는 업무를 수행합니다.",
+            "required_skills": {
+              "hard": ["음악 장르 및 트렌드에 대한 높은 이해도", "외국어 능력 (영어/일본어 등)", "기본적인 작곡/작사 지식 우대"],
+              "soft": ["창의적인 기획력", "원활한 네트워킹 및 커뮤니케이션", "꼼꼼함과 책임감", "강한 열정"]
+            },
+            "keywords": ["A&R", "K-POP", "음반 기획", "IP 비즈니스", "위버스", "콘텐츠 제작"]
+          },
+          "industry_context": {
+            "trends": ["글로벌 팬덤 플랫폼의 중요성 증대", "IP를 활용한 원소스 멀티유즈(OSMU) 전략 보편화", "버추얼 아이돌 등 기술 융합형 콘텐츠 등장"],
+            "competitors": ["SM엔터테인먼트", "JYP엔터테인먼트", "YG엔터테인먼트"]
+          }
+        }
+      }
+    ]
+  }
+}
