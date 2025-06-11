@@ -1,0 +1,4 @@
+{
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "files.autoSave": "afterDelay"
+}
