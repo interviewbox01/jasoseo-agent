@@ -1,0 +1,117 @@
+{
+  "jd_recommendation_eval": {
+    "task_definition": {
+      "description": "Generate a representative job description based on the job title, company name, and experience level. The output should be a concise narrative summarizing key responsibilities and qualifications, suitable for preparing a '자소서'.",
+      "input": {
+        "job_title": "string",
+        "company_name": "string",
+        "experience_level": "신입 | 경력 | 인턴 | 기타"
+      },
+      "output": {
+        "recommended_jd": "string"
+      }
+    },
+    "examples": [
+      {
+        "input": {
+          "job_title": "경영기획",
+          "company_name": "삼성전자",
+          "experience_level": "신입"
+        },
+        "output": {
+          "recommended_jd": "전사 경영 목표 달성을 위한 데이터 분석, 시장 리서치, 사업 전략 수립 지원 업무를 수행합니다. 신규 사업 기회를 발굴하고, 경영진의 의사결정을 돕기 위한 보고서 작성 및 발표를 담당하게 됩니다. 뛰어난 분석력과 기획력을 갖춘 인재를 찾습니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "온라인마케팅",
+          "company_name": "쿠팡",
+          "experience_level": "인턴"
+        },
+        "output": {
+          "recommended_jd": "디지털 마케팅 캠페인 기획 및 운영을 보조하며, 소셜 미디어 채널 관리, 콘텐츠 제작, 광고 성과 데이터 분석 업무를 지원합니다. 최신 마케팅 트렌드를 학습하고 실제 업무에 적용하며 성장할 기회를 제공합니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "HRM(인사운영)",
+          "company_name": "하이브",
+          "experience_level": "경력"
+        },
+        "output": {
+          "recommended_jd": "구성원의 성장과 조직 문화 발전을 위한 인사 운영 전반을 담당합니다. 채용, 평가, 보상, 노무 등 HRM 프로세스를 주도적으로 개선하고 실행하며, 글로벌 엔터테인먼트 산업에 맞는 인사 전략을 수립합니다. 3년 이상의 관련 경력이 필요합니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "토스 (비바리퍼블리카)",
+          "experience_level": "신입"
+        },
+        "output": {
+          "recommended_jd": "토스 서비스의 안정적이고 확장 가능한 서버, 애플리케이션, API를 개발하고 운영합니다. 대용량 트래픽 처리 경험을 쌓고, 금융 서비스의 복잡한 문제를 기술로 해결하는 데 기여합니다. Java/Kotlin, Spring 프레임워크에 대한 이해가 필요합니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "해외영업",
+          "company_name": "HMM (에이치엠엠)",
+          "experience_level": "경력"
+        },
+        "output": {
+          "recommended_jd": "글로벌 해운 시장에서 신규 고객사를 발굴하고 기존 고객 관계를 관리하며 영업 목표를 달성합니다. 해외 법인 및 파트너사와의 협력을 통해 영업 전략을 수립하고, 운임 협상 및 계약 체결을 주도합니다. 비즈니스 영어 능통 및 동종 업계 경력자를 우대합니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "온라인마케팅",
+          "company_name": "아모레퍼시픽",
+          "experience_level": "경력"
+        },
+        "output": {
+          "recommended_jd": "자사 브랜드의 디지털 채널(자사몰, 소셜미디어, 이커머스) 마케팅 전략을 수립하고 실행합니다. 퍼포먼스 마케팅, CRM, 데이터 기반의 고객 분석을 통해 브랜드 인지도 및 매출 증대에 기여합니다. 뷰티/소비재 산업 마케팅 경력 5년 이상을 찾습니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "넥슨",
+          "experience_level": "인턴"
+        },
+        "output": {
+          "recommended_jd": "라이브 게임 서비스의 백엔드 시스템 개발 및 유지보수 업무를 지원합니다. 선배 개발자들의 멘토링 하에 게임 서버 인프라를 이해하고, 각종 툴 개발에 참여하며 실무 경험을 쌓습니다. C++ 또는 Java에 대한 기본 지식이 필요합니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "경영기획",
+          "company_name": "현대건설",
+          "experience_level": "기타"
+        },
+        "output": {
+          "recommended_jd": "특정 해외 건설 프로젝트의 사업성 검토 및 기획 업무를 담당할 계약직 전문가를 모집합니다. 프로젝트 수주를 위한 시장 분석, 리스크 관리, 예산 수립 업무를 수행하며, 관련 경력 3년 이상 보유 및 유관 자격증 소지자를 우대합니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "HRM(인사운영)",
+          "company_name": "신한은행",
+          "experience_level": "신입"
+        },
+        "output": {
+          "recommended_jd": "은행의 인적자원 관리 및 운영 업무를 수행합니다. 신입행원 채용 및 교육 프로그램 기획, 급여 및 복리후생 관리, 조직문화 활성화 활동을 지원하며 금융 인재로 성장하게 됩니다."
+        }
+      },
+      {
+        "input": {
+          "job_title": "해외영업",
+          "company_name": "삼성바이오로직스",
+          "experience_level": "인턴"
+        },
+        "output": {
+          "recommended_jd": "글로벌 제약/바이오 고객사 대상 영업 활동을 지원합니다. 시장 자료 조사, 잠재 고객 리스트업, 제안서 작성 보조 및 내부 커뮤니케이션 업무를 통해 바이오 산업의 B2B 영업 프로세스를 경험합니다."
+        }
+      }
+    ]
+  }
+}
