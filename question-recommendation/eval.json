@@ -1,0 +1,67 @@
+{
+  "recommended_question_generation_eval": {
+    "task_definition": {
+      "description": "Generate a single, relevant interview question based on the user's input. The question must be specific to the company and job role by incorporating information such as the company's core business, known values, or major products, avoiding overly generic or hyper-specific inquiries.",
+      "input": {
+        "job_title": "string",
+        "company_name": "string",
+        "experience_level": "신입 | 경력 | 인턴 | 기타"
+      },
+      "output": {
+        "recommended_question": "string"
+      }
+    },
+    "examples": [
+      {
+        "input": {
+          "job_title": "백엔드 개발",
+          "company_name": "토스 (비바리퍼블리카)",
+          "experience_level": "신입"
+        },
+        "output": {
+          "recommended_question": "토스는 '자유와 책임' 문화를 강조합니다. 본인의 경험에 비추어 볼 때, 이러한 문화 속에서 동료 개발자와 기술적 갈등이 발생했을 경우 어떻게 해결해 나갈 것인지 설명해주세요."
+        }
+      },
+      {
+        "input": {
+          "job_title": "식품마케팅",
+          "company_name": "CJ제일제당",
+          "experience_level": "경력"
+        },
+        "output": {
+          "recommended_question": "당사의 '비비고' 브랜드가 글로벌 K-푸드 대표주자로 자리매김했습니다. 경력 마케터로서, 비비고의 성공 요인을 무엇이라고 분석하며, 본인이 합류한다면 어떤 방식으로 브랜드의 다음 성장을 이끌고 싶으신가요?"
+        }
+      },
+      {
+        "input": {
+          "job_title": "A&R",
+          "company_name": "하이브",
+          "experience_level": "인턴"
+        },
+        "output": {
+          "recommended_question": "하이브는 멀티 레이블 체제를 통해 음악적 다양성을 추구하고 있습니다. 본인이 가장 관심 있게 지켜본 하이브 산하 레이블은 어디이며, 해당 레이블의 음악적 방향성에 기여할 수 있는 자신만의 강점은 무엇이라고 생각하나요?"
+        }
+      },
+      {
+        "input": {
+          "job_title": "경영기획",
+          "company_name": "현대건설",
+          "experience_level": "신입"
+        },
+        "output": {
+          "recommended_question": "건설업은 최근 안전 및 환경(ESG) 규제가 강화되는 등 외부 환경 변화가 큰 산업입니다. 경영기획 직무 담당자로서 이러한 변화에 대응하기 위해 어떤 역량이 가장 중요하다고 생각하는지 본인의 경험과 연결지어 말씀해주세요."
+        }
+      },
+      {
+        "input": {
+          "job_title": "해외영업",
+          "company_name": "삼성전자",
+          "experience_level": "경력"
+        },
+        "output": {
+          "recommended_question": "삼성전자는 스마트폰, 가전, 반도체 등 다양한 사업 포트폴리오를 가지고 있습니다. 본인의 해외영업 경력과 전문성을 가장 잘 발휘할 수 있는 사업 분야는 어디라고 생각하며, 그 이유는 무엇입니까?"
+        }
+      }
+    ]
+  }
+}
