@@ -1,4 +1,170 @@
 {
+  "industryCategories": [
+    {
+      "id": "it-platform-game",
+      "name": "IT · 플랫폼 · 게임",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "platform-portal", "tagName": "#플랫폼/포털" },
+        { "tagId": "e-commerce", "tagName": "#이커머스" },
+        { "tagId": "game", "tagName": "#게임" },
+        { "tagId": "it-solution-si", "tagName": "#IT솔루션/SI" },
+        { "tagId": "o2o-vertical", "tagName": "#O2O/버티컬" },
+        { "tagId": "ai-data", "tagName": "#AI/데이터" },
+        { "tagId": "cloud-saas", "tagName": "#클라우드/SaaS" },
+        { "tagId": "fintech", "tagName": "#핀테크" }
+      ]
+    },
+    {
+      "id": "manufacturing-hardware",
+      "name": "제조 · 하드웨어",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "semiconductor", "tagName": "#반도체" },
+        { "tagId": "electronics-home", "tagName": "#가전/전자제품" },
+        { "tagId": "automotive-mobility", "tagName": "#자동차/모빌리티" },
+        { "tagId": "battery", "tagName": "#2차전지" },
+        { "tagId": "display", "tagName": "#디스플레이" },
+        { "tagId": "heavy-industry-shipbuilding", "tagName": "#중공업/조선" },
+        { "tagId": "steel-metal", "tagName": "#철강/금속" }
+      ]
+    },
+    {
+      "id": "finance",
+      "name": "금융",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "bank", "tagName": "#은행" },
+        { "tagId": "securities", "tagName": "#증권" },
+        { "tagId": "insurance", "tagName": "#보험" },
+        { "tagId": "card", "tagName": "#카드" },
+        { "tagId": "asset-management", "tagName": "#자산운용" }
+      ]
+    },
+    {
+      "id": "retail-fmcg-life",
+      "name": "유통 · 소비재 · 생활",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "dept-store-mart", "tagName": "#백화점/마트" },
+        { "tagId": "convenience-store", "tagName": "#편의점" },
+        { "tagId": "fmcg-beverage", "tagName": "#FMCG/식음료" },
+        { "tagId": "fashion-beauty", "tagName": "#패션/뷰티" },
+        { "tagId": "duty-free", "tagName": "#면세점" }
+      ]
+    },
+    {
+      "id": "bio-pharma-medical",
+      "name": "바이오 · 제약 · 의료",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "pharma-new-drug", "tagName": "#제약/신약개발" },
+        { "tagId": "bio-cmo", "tagName": "#바이오/CMO" },
+        { "tagId": "medical-device", "tagName": "#의료기기" },
+        { "tagId": "digital-healthcare", "tagName": "#디지털헬스케어" }
+      ]
+    },
+    {
+      "id": "media-contents-ad",
+      "name": "미디어 · 콘텐츠 · 광고",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "entertainment", "tagName": "#엔터테인먼트" },
+        { "tagId": "contents-video", "tagName": "#콘텐츠/영상제작" },
+        { "tagId": "ad-agency", "tagName": "#광고대행사" },
+        { "tagId": "webtoon-webnovel", "tagName": "#웹툰/웹소설" },
+        { "tagId": "broadcasting-press", "tagName": "#방송/언론" }
+      ]
+    },
+    {
+      "id": "construction-realestate",
+      "name": "건설 · 부동산",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "construction-engineering", "tagName": "#건설/엔지니어링" },
+        { "tagId": "realestate-development", "tagName": "#부동산개발" },
+        { "tagId": "plant", "tagName": "#플랜트" },
+        { "tagId": "interior", "tagName": "#인테리어" }
+      ]
+    },
+    {
+      "id": "public-corp",
+      "name": "공기업 · 공공기관",
+      "isPrimary": true,
+      "tags": [
+        { "tagId": "public-soc", "tagName": "#SOC (공항,도로,철도)" },
+        { "tagId": "public-energy", "tagName": "#에너지 공기업" },
+        { "tagId": "public-finance", "tagName": "#금융 공기업" },
+        { "tagId": "public-admin", "tagName": "#일반행정" }
+      ]
+    },
+    {
+      "id": "materials-parts-equipment",
+      "name": "소재 · 부품 · 장비 (소부장)",
+      "isPrimary": false,
+      "tags": [
+        { "tagId": "mpe-semiconductor", "tagName": "#반도체 소부장" },
+        { "tagId": "mpe-display", "tagName": "#디스플레이 소부장" },
+        { "tagId": "mpe-battery", "tagName": "#2차전지 소부장" },
+        { "tagId": "auto-parts", "tagName": "#자동차 부품" },
+        { "tagId": "chemical-materials", "tagName": "#화학/소재" }
+      ]
+    },
+    {
+      "id": "hospitality-travel-airline",
+      "name": "호텔 · 여행 · 항공",
+      "isPrimary": false,
+      "tags": [
+        { "tagId": "hotel", "tagName": "#호텔" },
+        { "tagId": "travel-agency", "tagName": "#여행사" },
+        { "tagId": "airline", "tagName": "#항공사" },
+        { "tagId": "leisure-resort", "tagName": "#레저/리조트" }
+      ]
+    },
+    {
+      "id": "professional-services",
+      "name": "전문 서비스",
+      "isPrimary": false,
+      "tags": [
+        { "tagId": "consulting", "tagName": "#컨설팅" },
+        { "tagId": "accounting-tax", "tagName": "#회계/세무" },
+        { "tagId": "law-firm", "tagName": "#법률 (로펌)" },
+        { "tagId": "market-research", "tagName": "#리서치" }
+      ]
+    },
+    {
+      "id": "transportation-logistics",
+      "name": "운송 · 물류",
+      "isPrimary": false,
+      "tags": [
+        { "tagId": "logistics-delivery", "tagName": "#물류/택배" },
+        { "tagId": "shipping", "tagName": "#해운" },
+        { "tagId": "forwarding", "tagName": "#포워딩" },
+        { "tagId": "land-transport", "tagName": "#육상운송" }
+      ]
+    },
+    {
+      "id": "education",
+      "name": "교육",
+      "isPrimary": false,
+      "tags": [
+        { "tagId": "edutech", "tagName": "#에듀테크" },
+        { "tagId": "private-academy", "tagName": "#입시/보습학원" },
+        { "tagId": "edu-publishing", "tagName": "#교육출판" },
+        { "tagId": "language-edu", "tagName": "#외국어교육" }
+      ]
+    },
+    {
+      "id": "nonprofit-social-enterprise",
+      "name": "비영리 · 사회적기업",
+      "isPrimary": false,
+      "tags": [
+        { "tagId": "ngo-npo", "tagName": "#NGO/NPO" },
+        { "tagId": "social-enterprise", "tagName": "#사회적기업" },
+        { "tagId": "foundation", "tagName": "#재단" }
+      ]
+    }
+  ],
   "industry_classification_eval": {
     "task_definition": {
       "description": "Classify the company's industry based on job title and company name. The output must be an array containing one or more relevant 'tagId's from the provided industry list.",
