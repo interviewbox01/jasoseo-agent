@@ -68,7 +68,7 @@ def process_question_generation(company_name, job_title, experience_level, selec
     질문 생성 결과를 처리하고 UI에 표시할 형태로 변환하는 함수
     """
     try:
-        content, questions = generate_interview_questions(company_name, job_title, experience_level, selected_questions, num_questions)
+        content, questions, raw_content = generate_interview_questions(company_name, job_title, experience_level, selected_questions, num_questions)
         question_cards = create_question_cards(questions)
         return content, question_cards
     except Exception as e:

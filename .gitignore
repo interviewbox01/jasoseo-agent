@@ -1,2 +1,8 @@
 .env
 __pycache__
+hf_space
+hf_space_chat
+*.txt
+.vscode
+.gradio
+jasoseo-agent

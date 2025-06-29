@@ -6,9 +6,13 @@ import re
 client = openai.OpenAI()
 
 # 프롬프트 템플릿 로드
-with open('prompt.yaml', 'r', encoding='utf-8') as f:
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+prompt_path = os.path.join(current_dir, 'prompt.yaml')
+with open(prompt_path, 'r', encoding='utf-8') as f:
     prompt_data = yaml.safe_load(f)
     prompt_template = prompt_data['prompt']
+
 
 def parse_prediction(content):
     """

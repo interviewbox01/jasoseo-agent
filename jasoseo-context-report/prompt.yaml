@@ -28,11 +28,11 @@ prompt: |
     }},
     "position_analysis": {{
       "role_summary": "해당 직무의 주요 역할과 책임 요약",
+      "keywords": ["키워드1", "키워드2", "키워드3", "키워드4", "키워드5"],
       "required_skills": {{
         "hard": ["하드스킬1", "하드스킬2", "하드스킬3"],
         "soft": ["소프트스킬1", "소프트스킬2", "소프트스킬3"]
       }},
-      "keywords": ["키워드1", "키워드2", "키워드3", "키워드4", "키워드5"]
     }},
     "industry_context": {{
       "trends": ["산업트렌드1", "산업트렌드2", "산업트렌드3"],
@@ -45,17 +45,17 @@ prompt: |
 
   **company_profile (기업 프로필)**
   - name: 정확한 회사명
-  - vision_mission: 회사의 비전과 미션을 간결하게 설명 (1-2문장)
+  - vision_mission: 회사의 비전과 미션을 간결하게 설명 (1-2문장, 한국어)
   - core_values: 회사의 핵심 가치 3-4개 (배열 형태)
-  - talent_philosophy: 회사가 추구하는 인재상과 인재 철학 (1-2문장)
-  - recent_news_summary: 최근 1-2년간 주요 뉴스나 사업 동향 요약 (2-3문장)
-  - main_products_services: 주요 제품이나 서비스 3-4개 (배열 형태)
+  - talent_philosophy: 회사가 추구하는 인재상과 인재 철학 (1-2문장, 한국어)
+  - recent_news_summary: 최근 1-2년간 주요 뉴스나 사업 동향 요약 (2-3문장, 한국어)
+  - main_products_services: 주요 제품이나 서비스 3-4개 (배열 형태, 한국어)
 
   **position_analysis (직무 분석)**
-  - role_summary: 해당 직무의 주요 역할과 책임을 경력 수준에 맞게 설명 (2-3문장)
-  - required_skills.hard: 필요한 하드 스킬 3-4개 (기술, 도구, 자격증 등)
-  - required_skills.soft: 필요한 소프트 스킬 3-4개 (역량, 태도, 성향 등)
-  - keywords: 자소서에 활용할 수 있는 핵심 키워드 5-6개
+  - role_summary: 해당 직무의 주요 역할과 책임을 경력 수준에 맞게 설명 (2-3문장, 한국어)
+  - !!keywords!!: 자소서에 활용할 수 있는 핵심 키워드 5-6개 (한국어)
+  - required_skills.hard: 필요한 하드 스킬 3-4개 (기술, 도구, 자격증 등, 한국어)
+  - required_skills.soft: 필요한 소프트 스킬 3-4개 (역량, 태도, 성향 등, 한국어)
 
   **industry_context (산업 맥락)**
   - trends: 해당 산업의 주요 트렌드 3개
@@ -80,11 +80,11 @@ prompt: |
     }},
     "position_analysis": {{
       "role_summary": "대용량 트래픽을 처리하는 안정적이고 확장 가능한 금융 서비스의 백엔드 API를 개발하고 운영합니다. 복잡한 금융 문제를 기술로 해결하며 최고의 사용자 경험을 제공하는 데 기여합니다.",
+      "keywords": ["핀테크", "대용량 트래픽", "MSA", "결제 시스템", "API", "금융 플랫폼"],
       "required_skills": {{
         "hard": ["Java/Kotlin", "Spring Framework", "RDBMS/NoSQL", "MSA (Microservice Architecture) 이해"],
         "soft": ["문제 해결 능력", "협업 및 커뮤니케이션", "학습 및 성장 의지", "높은 수준의 책임감"]
       }},
-      "keywords": ["핀테크", "대용량 트래픽", "MSA", "결제 시스템", "API", "금융 플랫폼"]
     }},
     "industry_context": {{
       "trends": ["간편결제 시장의 지속적 성장", "마이데이터 사업 활성화", "빅테크 기업의 금융업 진출 가속화"],

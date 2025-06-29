@@ -3,6 +3,10 @@ import json
 import re
 import yaml
 from openai import OpenAI
+from dotenv import load_dotenv
+from ..utils import track_api_cost
+
+load_dotenv()
 
 # OpenAI 클라이언트 초기화
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -14,6 +18,8 @@ prompt_path = os.path.join(current_dir, 'prompt.yaml')
 with open(prompt_path, 'r', encoding='utf-8') as f:
     prompt_data = yaml.safe_load(f)
     prompt_template = prompt_data['prompt']
+
+
 
 def parse_context_report(content):
     """
@@ -48,52 +54,10 @@ def parse_context_report(content):
                 try:
                     parsed_json = json.loads(json_str)
                     if isinstance(parsed_json, dict) and 'company_profile' in parsed_json:
-                        return parsed_json
+                        return parsed_json, content
                 except json.JSONDecodeError as e:
                     print(f"JSON 블록 파싱 실패: {e}")
         
-        # 2. 중괄호로 둘러싸인 JSON 찾기
-        brace_patterns = [
-            r'\{.*?\}'
-        ]
-        
-        for pattern in brace_patterns:
-            brace_match = re.search(pattern, cleaned_content, re.DOTALL)
-            if brace_match:
-                json_str = brace_match.group(0).strip()
-                print(f"중괄호 블록 발견: {repr(json_str[:100])}")
-                
-                # JSON 문자열 정리
-                json_str = re.sub(r'\n\s*', ' ', json_str)
-                json_str = re.sub(r',\s*}', '}', json_str)
-                json_str = re.sub(r',\s*]', ']', json_str)
-                
-                try:
-                    parsed_json = json.loads(json_str)
-                    if isinstance(parsed_json, dict) and 'company_profile' in parsed_json:
-                        return parsed_json
-                except json.JSONDecodeError as e:
-                    print(f"중괄호 블록 파싱 실패: {e}")
-        
-        # 3. 전체 텍스트를 JSON으로 파싱 시도
-        try:
-            # 코드 블록 마커 제거
-            if cleaned_content.startswith('```'):
-                lines = cleaned_content.split('\n')
-                start_idx = 1 if lines[0].startswith('```') else 0
-                end_idx = len(lines)
-                for i in range(len(lines)-1, -1, -1):
-                    if lines[i].strip() == '```':
-                        end_idx = i
-                        break
-                cleaned_content = '\n'.join(lines[start_idx:end_idx])
-            
-            cleaned_content = cleaned_content.strip()
-            parsed_json = json.loads(cleaned_content)
-            if isinstance(parsed_json, dict) and 'company_profile' in parsed_json:
-                return parsed_json
-        except json.JSONDecodeError as e:
-            print(f"전체 JSON 파싱 실패: {e}")
         
         # 4. 기본 구조 반환 (파싱 실패 시)
         print("JSON 파싱 실패, 기본 구조 반환")
@@ -118,7 +82,7 @@ def parse_context_report(content):
                 "trends": ["정보 없음"],
                 "competitors": ["정보 없음"]
             }
-        }
+        }, content
         
     except Exception as e:
         print(f"컨텍스트 리포트 파싱 전체 오류: {e}")
@@ -144,7 +108,7 @@ def parse_context_report(content):
                 "trends": ["오류"],
                 "competitors": ["오류"]
             }
-        }
+        }, content
 
 def generate_context_report(job_title, company_name, experience_level):
     """
@@ -163,7 +127,7 @@ def generate_context_report(job_title, company_name, experience_level):
         
         # OpenAI Responses API 호출 (Web Search Preview 사용)
         response = client.responses.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",
             tools=[{
                 "type": "web_search_preview",
                 "search_context_size": "high",
@@ -173,7 +137,9 @@ def generate_context_report(job_title, company_name, experience_level):
         
         content = response.output_text
         print(f"=== AI 응답 원본 ===")
-        print(content)
+        import pprint
+        pp = pprint.PrettyPrinter(indent=2)
+        pp.pprint(content)
         print(f"=== 전체 응답 객체 ===")
         print(response)
         
@@ -188,7 +154,7 @@ def generate_context_report(job_title, company_name, experience_level):
         
         print(f"=== AI 응답 끝 ===")
         
-        report_data = parse_context_report(content)
+        report_data, raw_content = parse_context_report(content)
         
         if not report_data or 'company_profile' not in report_data:
             return "컨텍스트 리포트 생성에 실패했습니다. 다시 시도해주세요.", {}
@@ -268,7 +234,7 @@ def generate_context_report(job_title, company_name, experience_level):
 *본 리포트는 AI가 생성한 것으로, 실제 정보와 다를 수 있습니다. 자소서 작성 시 참고용으로 활용하세요.*
 """
         
-        return result, report_data
+        return result, report_data, raw_content
         
     except Exception as e:
         error_msg = f"""## ❌ 오류 발생
@@ -279,4 +245,14 @@ def generate_context_report(job_title, company_name, experience_level):
 
 다시 시도해주세요.
 """
-        return error_msg, {} 
+        return error_msg, {}, raw_content    
+        
+        
+if __name__ == "__main__":
+    job_title = "백엔드 개발"
+    company_name = "아이티뱅크"
+    experience_level = "신입"
+    result, report_data, raw_content = generate_context_report(job_title, company_name, experience_level)
+    print(result)
+    print(report_data)
+    print(raw_content)

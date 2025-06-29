@@ -43,11 +43,12 @@ def generate_question_recommendation(client, prompts, job_title, company_name, e
         result = response.output_text
         logger.info("면접 질문 추천 생성 완료")
         
-        return result
+        return result, response
         
     except Exception as e:
         logger.error(f"면접 질문 추천 생성 중 오류 발생: {str(e)}")
-        raise e
+        # raise e 대신 오류 정보와 None을 반환하도록 수정
+        return f"오류 발생: {str(e)}", None
 
 def parse_question_recommendation(response_text):
     """
@@ -75,42 +76,6 @@ def parse_question_recommendation(response_text):
             logger.info("JSON 블록에서 파싱 성공")
             return parsed_result
         
-        # 중괄호로 둘러싸인 JSON 추출 시도
-        start_idx = response_text.find('{')
-        end_idx = response_text.rfind('}') + 1
-        if start_idx != -1 and end_idx != 0:
-            json_content = response_text[start_idx:end_idx]
-            parsed_result = json.loads(json_content)
-            logger.info("중괄호 JSON에서 파싱 성공")
-            return parsed_result
-        
-        # JSON 파싱 실패 시 텍스트에서 질문 추출
-        logger.warning("JSON 파싱 실패, 텍스트에서 질문 추출 시도")
-        
-        # 따옴표로 둘러싸인 질문 찾기
-        lines = response_text.split('\n')
-        for line in lines:
-            line = line.strip()
-            if line and not line.startswith('#') and not line.startswith('-'):
-                # 따옴표 제거
-                question = line.strip('"').strip("'").strip()
-                if len(question) > 10:  # 최소 길이 체크
-                    return {"recommended_question": question}
-        
-        # 전체 텍스트를 질문으로 사용 (최후의 수단)
-        clean_text = response_text.strip().strip('"').strip("'")
-        if len(clean_text) > 10:
-            return {"recommended_question": clean_text}
-        
-        logger.error("면접 질문 추출 실패")
-        return {"recommended_question": "질문 생성에 실패했습니다."}
-        
-    except json.JSONDecodeError as e:
-        logger.error(f"JSON 파싱 오류: {str(e)}")
-        # JSON 파싱 실패 시 텍스트에서 직접 추출
-        clean_text = response_text.strip().strip('"').strip("'")
-        return {"recommended_question": clean_text if clean_text else "질문 생성에 실패했습니다."}
-    
     except Exception as e:
         logger.error(f"면접 질문 파싱 중 오류 발생: {str(e)}")
         return {"recommended_question": "질문 파싱에 실패했습니다."} 

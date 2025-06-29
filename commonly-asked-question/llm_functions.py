@@ -3,6 +3,8 @@ import json
 import re
 import yaml
 from openai import OpenAI
+from dotenv import load_dotenv
+load_dotenv()
 
 # OpenAI 클라이언트 초기화
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -16,6 +18,32 @@ with open(prompt_path, 'r', encoding='utf-8') as f:
     prompt_template = prompt_data['prompt']
 
 def parse_prediction(content):
+    """
+    AI 응답에서 JSON 형식의 면접 질문을 파싱하는 간단한 함수
+    """
+    try:
+        # 1. JSON 코드 블록(```json ... ```)을 찾아 파싱합니다.
+        json_match = re.search(r"```json\s*(\{.*?\})\s*```", content, re.DOTALL)
+        if json_match:
+            json_str = json_match.group(1)
+            data = json.loads(json_str)
+            if 'sample_questions' in data and isinstance(data['sample_questions'], list):
+                return data['sample_questions']
+
+        # 2. 코드 블록이 없다면, 응답 전체를 JSON으로 파싱 시도합니다.
+        cleaned_content = content.replace("```json", "").replace("```", "").strip()
+        data = json.loads(cleaned_content)
+        if 'sample_questions' in data and isinstance(data['sample_questions'], list):
+            return data['sample_questions']
+
+
+    except Exception as e:
+        print(f"An unexpected error occurred during parsing: {e}")
+
+    # 모든 방법이 실패하면 빈 리스트를 반환합니다.
+    return []
+
+def parse_prediction_complex(content):
     """
     AI 응답에서 JSON 형식의 면접 질문을 파싱하는 함수
     """
@@ -227,7 +255,7 @@ def generate_interview_questions(company_name, job_title, experience_level, sele
 *본 질문들은 AI가 생성한 것으로, 실제 면접과 다를 수 있습니다.*
 """
         
-        return result, questions
+        return result, questions, content
         
 #     except Exception as e:
 #         error_msg = f"""## ❌ 오류 발생
@@ -241,11 +269,13 @@ def generate_interview_questions(company_name, job_title, experience_level, sele
 #         return error_msg, []
 
 if __name__ == "__main__":
-    company_name = "토스"
+    company_name = "카카오"
     job_title = "백엔드 개발"
     experience_level = "신입"
     selected_questions = "자기소개를 해보세요, 지원 동기가 무엇인가요, 가장 도전적인 경험은 무엇인가요, 입사 후 포부는 무엇인가요"
     num_questions = 3
-    result, questions = generate_interview_questions(company_name, job_title, experience_level, selected_questions, num_questions)
+    result, questions, raw_content = generate_interview_questions(company_name, job_title, experience_level, selected_questions, num_questions)
     print(result)
     print(questions)
+    print(f"=== 원본 응답 ===")
+    print(raw_content)
