@@ -1,0 +1,348 @@
+
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>case_005: LG전자 - IoT 플랫폼 개발자</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f5f5;
+                line-height: 1.6;
+            }
+            .header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .info-card {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .step {
+                background: white;
+                margin-bottom: 25px;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .step-header {
+                background: #34495e;
+                color: white;
+                padding: 15px 20px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .step-content {
+                padding: 20px;
+            }
+            .chat-turn {
+                background: #ecf0f1;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border-left: 4px solid #3498db;
+            }
+            .progress-bar {
+                background: #ecf0f1;
+                height: 25px;
+                border-radius: 12px;
+                overflow: hidden;
+                margin: 10px 0;
+                position: relative;
+            }
+            .progress-fill {
+                background: linear-gradient(90deg, #4CAF50, #8BC34A);
+                height: 100%;
+                transition: width 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+            }
+            .error {
+                background: #f8d7da;
+                color: #721c24;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #dc3545;
+            }
+            .success {
+                background: #d4edda;
+                color: #155724;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #28a745;
+            }
+            .question-answer {
+                background: #f8f9fa;
+                padding: 20px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border-left: 4px solid #007bff;
+            }
+            .question-title {
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+            pre {
+                background: #f1f3f4;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                border: 1px solid #e9ecef;
+                font-size: 14px;
+            }
+            .meta-info {
+                background: #e9ecef;
+                padding: 10px 15px;
+                border-radius: 5px;
+                margin: 10px 0;
+                font-size: 14px;
+                color: #6c757d;
+            }
+            .status-badge {
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+            .status-success {
+                background: #28a745;
+                color: white;
+            }
+            .status-error {
+                background: #dc3545;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>✅ case_005</h1>
+            <h2>LG전자 - IoT 플랫폼 개발자</h2>
+            <p>생성 시간: 2025년 06월 30일 07:53:51</p>
+        </div>
+        
+        <div class="info-card">
+            <h2>📋 테스트 케이스 정보</h2>
+            <p><strong>케이스 ID:</strong> case_005</p>
+            <p><strong>회사명:</strong> LG전자</p>
+            <p><strong>직무:</strong> IoT 플랫폼 개발자</p>
+            <p><strong>글자수 제한:</strong> 400자</p>
+            <p><strong>처리 시간:</strong> 312.57초</p>
+            <p><strong>상태:</strong> <span class="status-badge status-success">성공</span></p>
+            
+            <h3>📄 JD (Job Description)</h3>
+            <pre>IoT 디바이스 연동, 클라우드 플랫폼 개발, 데이터 분석을 담당합니다.</pre>
+            
+            <h3>❓ 자기소개서 질문들</h3>
+            <ol>
+    <li>창의적 문제해결 경험을 구체적으로 기술하시오.</li>
+            </ol>
+        </div>
+    
+        <div class="step">
+            <div class="step-header">📝 1단계: 가이드 생성</div>
+            <div class="step-content">
+    
+                <div class="success">✅ 가이드 생성 성공</div>
+                <div class="meta-info">생성 시간: 2025-06-30T07:48:41.778882</div>
+                <pre>| 단계 | 설명 |
+| --- | --- |
+| ① 문제 상황 설명 | 언제, 어떤 환경에서 문제를 경험했는지 구체적으로 서술 (예: 프로젝트, 과제 등) |
+| ② 문제 인식 및 분석 | 해당 문제의 핵심 원인을 어떻게 파악했는지 설명 (비효율성, 데이터 부족 등) |
+| ③ 창의적 해결책 도출 | 문제를 해결하기 위해 어떤 독창적인 아이디어를 제안했는지 구체적으로 기술 |
+| ④ 실행 과정 및 결과 | 제안한 해결책을 실행했을 때의 과정을 서술하고, 그 결과로 나타난 성과를 수치 중심으로 기술 |
+| ⑤ 직무와의 연결 | 이 경험이 지원하는 직무(IoT 디바이스 연동, 클라우드 플랫폼 개발, 데이터 분석)와 어떻게 연결되는지 설명 |</pre>
+            </div></div>
+        <div class="step">
+            <div class="step-header">💬 2단계: 채팅 시뮬레이션</div>
+            <div class="step-content">
+    <div class="success">✅ 총 9개의 대화 턴 완료</div>
+                <div class="chat-turn">
+                    <h4>턴 1</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%">0%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:48:43.847762</div>
+                    <p><strong>진행률 분석:</strong> 현재 대화가 없으므로, 진행 상황이 시작되지 않았습니다. 학생과의 첫 대화가 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>안녕, 철수야! 어떤 프로젝트 했었어? 창의적으로 문제 해결한 경험 있니?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>IoT 센서 네트워크 최적화 프로젝트가 있었습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 2</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%">20%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:49:22.274045</div>
+                    <p><strong>진행률 분석:</strong> 문제 상황 설명이 완료되었습니다. 이제 문제 인식 및 분석을 질문할 차례입니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>그 프로젝트에서 어떤 문제가 있었어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>네트워크 확장 시 연결 불안정 문제를 해결했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 3</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:49:46.066971</div>
+                    <p><strong>진행률 분석:</strong> 철수가 문제 상황 설명을 해주었고, 문제 인식 단계도 언급했습니다. 이제 해결책과 실행 과정을 들어야 합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>문제의 핵심 원인을 어떻게 파악했어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>신호 세기 분석 통해 불안정 원인 파악했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 4</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:50:09.126631</div>
+                    <p><strong>진행률 분석:</strong> 문제의 핵심 원인 파악 단계까지 완료됐습니다. 다음으로 창의적 해결책 도출을 알아봐야 합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>신호 세기 문제 해결 위해 어떤 아이디어 떠올렸어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>저전력 모드 활용해 신호 안정성 향상시켰습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 5</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%">60%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:50:31.702358</div>
+                    <p><strong>진행률 분석:</strong> 현재 프로젝트 문제와 해결책까지 언급되었으나 실행 과정과 결과, 직무 연결이 아직 미완입니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>저전력 모드 활용, 과정과 결과 구체적으로 설명해 줄래?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>저전력 모드로 전력 소모 줄여 신호 안정성 개선했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 6</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%">60%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:51:03.085412</div>
+                    <p><strong>진행률 분석:</strong> 문제 상황 설명, 문제 인식 및 분석, 창의적 해결책 도출까지 완료되었고, 실행 과정 및 결과와 직무와의 연결이 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>신호 안정성 개선으로 어떤 성과를 거뒀니? 수치로 설명해줄래?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>성능 30% 향상 및 연결 성공률 25% 증가했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 7</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%">80%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:51:29.694565</div>
+                    <p><strong>진행률 분석:</strong> 해결책의 구체적 실행 과정과 직무와의 연결 부분이 아직 부족합니다. 수치는 있으나, 추가적인 설명이 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>저전력 모드 작업 어떻게 했어? 직무 연관성과 몇 단계 더 설명해줄래?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>최적화 알고리즘 적용하여 구현, IoT 플랫폼 효율성 강화.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 8</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%">80%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:52:02.444768</div>
+                    <p><strong>진행률 분석:</strong> 문제 상황 설명부터 실행 과정 및 결과까지 충분히 설명되었으나, 직무와의 연결 설명이 더 필요함.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>이 경험이 어떻게 직무와 연결되는지 더 설명해줄래?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>IoT 플랫폼 효율성 강화를 통한 고객가치 증대.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 9</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%">100%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:52:35.486558</div>
+                    <p><strong>진행률 분석:</strong> 학생이 제공한 정보로 문제 상황, 인식, 분석, 해결책, 실행 및 결과 설명이 완료됨.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>좋아, 이제 자소서에 쓸 내용 충분히 모았어! 작성해보자 :)</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>안녕하세요, 준비된 내용으로 지원서 작성 시작하겠습니다.</pre>
+                </div>
+            </div></div>
+        <div class="step">
+            <div class="step-header">🔄 3단계: 답변 흐름 생성</div>
+            <div class="step-content">
+    
+                <div class="question-answer">
+                    <div class="question-title">질문 1: 창의적 문제해결 경험을 구체적으로 기술하시오.</div>
+                    <div class="success">✅ 흐름 생성 성공</div>
+                    <div class="meta-info">생성 시간: 2025-06-30T07:52:42.225735</div>
+                    <pre>| 단계 | 항목 | 설명 | 체크포인트 |
+| --- | --- | --- | --- |
+| ① 요약 | 한 문장 요약 | IoT 센서 네트워크 최적화 프로젝트를 통해 신호 안정성을 개선하여 성과를 낸 경험을 한 문장으로 요약 | - 프로젝트명, 행동, 성과 포함 |
+| ② 상황 | 활동 배경 | IoT 센서 네트워크 최적화 프로젝트에서 내가 맡은 역할 및 프로젝트의 배경을 구체적으로 설명 | - 프로젝트 기간, 팀원 여부, 목표 맥락 |
+| ③ 문제 정의 | 문제 및 원인 분석 | 네트워크 확장 시 연결 불안정의 문제를 인식하고, 신호 세기 분석을 통해 원인을 정의한 과정을 서술 | - 문제의 본질이 명확히 드러나야 함 |
+| ④ 해결 행동 | 기술적 조치 및 실행 | 저전력 모드를 활용한 신호 안정성 향상 방식 및 최적화 알고리즘 적용 과정을 설명 | - 구체적인 기술적 접근 방식 강조 |
+| ⑤ 결과 | 성과 및 평가 | 신호 안정성 개선의 성과로 성능 30% 향상 및 연결 성공률 25% 증가한 결과를 정량적으로 제시 | - 수치적 성과와 긍정적 피드백 포함 |
+| ⑥ 느낀 점 | 통찰 및 성장 | 이 경험에서 얻은 문제 해결력과 IoT 플랫폼 효율성 강화에 대한 이해의 성장을 설명 | - 직무에 대한 적합성과 관련된 성장 포인트 강조 |
+| ⑦ 직무 연계 | 직무 기여 가능성 | 이 경험이 지원 직무에 기여할 수 있는 방식 및 향후 목표와 연결 | - 직무 관련 역량과 기여 의지 명확히 연결 |</pre>
+                </div>
+            </div></div>
+        <div class="step">
+            <div class="step-header">✍️ 4단계: 최종 답변 생성</div>
+            <div class="step-content">
+    
+                <div class="question-answer">
+                    <div class="question-title">질문 1: 창의적 문제해결 경험을 구체적으로 기술하시오.</div>
+                    <div class="success">✅ 답변 생성 성공</div>
+                    <div class="meta-info">생성 시간: 2025-06-30T07:53:21.101726</div>
+                    
+                    <h4>📝 최종 답변:</h4>
+                    <pre>```markdown [IoT 센서 네트워크 최적화 프로젝트를 통한 신호 안정성 확보]
+IoT 센서 네트워크 최적화 프로젝트에서 신호 안정성을 개선하여 성능을 30% 향상시키고 연결 성공률을 25% 증가시킨 경험이 있습니다. 이 프로젝트에서 저는 팀원으로 참여하여 네트워크 확장 시 나타나는 연결 불안정 문제를 해결하는 역할을 맡았습니다. 프로젝트 초기에는 신호 세기의 불안정이 문제의 핵심임을 인식했고, 이를 분석하여 원인을 정의했습니다.
+
+저는 저전력 모드를 활용하여 신호 안정성을 향상시키는 방안을 제안했습니다. 이를 위해 최적화 알고리즘을 설계하고 적용하여 시스템의 효율을 극대화시켰습니다. 실행 결과, 성능이 30% 향상되고 연결 성공률이 25% 증가한다는 성과를 얻었습니다. 이러한 수치적 결과는 긍정적인 피드백을 받았고, 기술적 문제 해결력의 중요성을 다시금 깨닫게 됐습니다.
+
+이 경험을 통해 IoT 플랫폼의 효율성을 강화하고, 이러한 성장이 LG전자의 기술 발전에 기여할 수 있음을 확신하게 되었습니다. 향후 LG전자에서도 IoT 센서 네트워크 최적화를 통해 고객 가치 증대를 목표로 적극적으로 기여하고자 합니다. ```</pre>
+                    
+                    <h4>🔄 사용된 답변 흐름:</h4>
+                    <pre>| 단계 | 항목 | 설명 | 체크포인트 |
+| --- | --- | --- | --- |
+| ① 요약 | 한 문장 요약 | IoT 센서 네트워크 최적화 프로젝트를 통해 신호 안정성을 개선하여 성과를 낸 경험을 한 문장으로 요약 | - 프로젝트명, 행동, 성과 포함 |
+| ② 상황 | 활동 배경 | IoT 센서 네트워크 최적화 프로젝트에서 내가 맡은 역할 및 프로젝트의 배경을 구체적으로 설명 | - 프로젝트 기간, 팀원 여부, 목표 맥락 |
+| ③ 문제 정의 | 문제 및 원인 분석 | 네트워크 확장 시 연결 불안정의 문제를 인식하고, 신호 세기 분석을 통해 원인을 정의한 과정을 서술 | - 문제의 본질이 명확히 드러나야 함 |
+| ④ 해결 행동 | 기술적 조치 및 실행 | 저전력 모드를 활용한 신호 안정성 향상 방식 및 최적화 알고리즘 적용 과정을 설명 | - 구체적인 기술적 접근 방식 강조 |
+| ⑤ 결과 | 성과 및 평가 | 신호 안정성 개선의 성과로 성능 30% 향상 및 연결 성공률 25% 증가한 결과를 정량적으로 제시 | - 수치적 성과와 긍정적 피드백 포함 |
+| ⑥ 느낀 점 | 통찰 및 성장 | 이 경험에서 얻은 문제 해결력과 IoT 플랫폼 효율성 강화에 대한 이해의 성장을 설명 | - 직무에 대한 적합성과 관련된 성장 포인트 강조 |
+| ⑦ 직무 연계 | 직무 기여 가능성 | 이 경험이 지원 직무에 기여할 수 있는 방식 및 향후 목표와 연결 | - 직무 관련 역량과 기여 의지 명확히 연결 |</pre>
+                </div>
+            </div></div>
+    </body>
+    </html>
+    

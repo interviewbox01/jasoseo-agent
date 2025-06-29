@@ -1,0 +1,364 @@
+
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>case_017: 카카오 - 백엔드 개발자</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f5f5;
+                line-height: 1.6;
+            }
+            .header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .info-card {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .step {
+                background: white;
+                margin-bottom: 25px;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .step-header {
+                background: #34495e;
+                color: white;
+                padding: 15px 20px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .step-content {
+                padding: 20px;
+            }
+            .chat-turn {
+                background: #ecf0f1;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border-left: 4px solid #3498db;
+            }
+            .progress-bar {
+                background: #ecf0f1;
+                height: 25px;
+                border-radius: 12px;
+                overflow: hidden;
+                margin: 10px 0;
+                position: relative;
+            }
+            .progress-fill {
+                background: linear-gradient(90deg, #4CAF50, #8BC34A);
+                height: 100%;
+                transition: width 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+            }
+            .error {
+                background: #f8d7da;
+                color: #721c24;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #dc3545;
+            }
+            .success {
+                background: #d4edda;
+                color: #155724;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #28a745;
+            }
+            .question-answer {
+                background: #f8f9fa;
+                padding: 20px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border-left: 4px solid #007bff;
+            }
+            .question-title {
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+            pre {
+                background: #f1f3f4;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                border: 1px solid #e9ecef;
+                font-size: 14px;
+            }
+            .meta-info {
+                background: #e9ecef;
+                padding: 10px 15px;
+                border-radius: 5px;
+                margin: 10px 0;
+                font-size: 14px;
+                color: #6c757d;
+            }
+            .status-badge {
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+            .status-success {
+                background: #28a745;
+                color: white;
+            }
+            .status-error {
+                background: #dc3545;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>✅ case_017</h1>
+            <h2>카카오 - 백엔드 개발자</h2>
+            <p>생성 시간: 2025년 06월 30일 08:00:48</p>
+        </div>
+        
+        <div class="info-card">
+            <h2>📋 테스트 케이스 정보</h2>
+            <p><strong>케이스 ID:</strong> case_017</p>
+            <p><strong>회사명:</strong> 카카오</p>
+            <p><strong>직무:</strong> 백엔드 개발자</p>
+            <p><strong>글자수 제한:</strong> 200자</p>
+            <p><strong>처리 시간:</strong> 367.14초</p>
+            <p><strong>상태:</strong> <span class="status-badge status-success">성공</span></p>
+            
+            <h3>📄 JD (Job Description)</h3>
+            <pre>대규모 트래픽 처리, 마이크로서비스 설계 및 운영, RESTful API 개발을 담당합니다.</pre>
+            
+            <h3>❓ 자기소개서 질문들</h3>
+            <ol>
+    <li>공동의 목표를 달성하기 위해 타인과 힘을 합쳐 노력했던 경험을 기술해주세요.</li>
+            </ol>
+        </div>
+    
+        <div class="step">
+            <div class="step-header">📝 1단계: 가이드 생성</div>
+            <div class="step-content">
+    
+                <div class="success">✅ 가이드 생성 성공</div>
+                <div class="meta-info">생성 시간: 2025-06-30T07:54:44.941297</div>
+                <pre>| 단계 | 설명 |
+| --- | --- |
+| ① 상황 (Context) | 대규모 트래픽 처리 및 API 개발을 위한 팀 프로젝트에서, 여러 개발자들과 협력하여 공동의 목표를 설정하고 작업을 시작했다. |
+| ② 문제 (Obstacle) | 팀원 간의 의견 차이로 인해 마이크로서비스 설계 방향이 통일되지 않아 프로젝트가 지연되는 문제가 발생했다. |
+| ③ 분석 및 행동 (Solution) | 각 팀원의 의견을 경청하고, 그에 대한 이해를 바탕으로 회의를 통해 공통의 목표와 각자가 맡을 역할을 명확히 분배하였다. 이후 화상 회의를 통해 지속적으로 소통하며 진행 상황을 점검했다. |
+| ④ 결과 (Outcome) | 팀원 모두의 의견이 반영된 설계를 통해 프로젝트의 진행 속도가 빨라졌고, 최종적으로 기한 내에 성공적으로 대규모 트래픽 처리가 가능한 서비스를 개발하여 발표할 수 있었다. |
+| ⑤ 교훈 및 적용 (Value) | 협업에서 소통의 중요성을 실감했으며, 이러한 경험은 이후 RESTful API 개발에서도 다양한 의견을 조율하는 데 큰 도움이 될 것이다. |</pre>
+            </div></div>
+        <div class="step">
+            <div class="step-header">💬 2단계: 채팅 시뮬레이션</div>
+            <div class="step-content">
+    <div class="success">✅ 총 10개의 대화 턴 완료</div>
+                <div class="chat-turn">
+                    <h4>턴 1</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%">0%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:54:47.826156</div>
+                    <p><strong>진행률 분석:</strong> 아직 대화를 시작하지 않았습니다. 학생의 경험과 배경을 파악해야 합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>어, 백엔드 프로젝트 경험 중 기억나는 거 있어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>온라인 쇼핑몰 프로젝트로 REST API 개발 경험이 있습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 2</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%">20%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:55:18.923102</div>
+                    <p><strong>진행률 분석:</strong> 학생이 REST API 개발 경험을 언급하여 상황(Context) 일부 충족됨. 추가 정보 필요.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>그 프로젝트에서 팀원은 몇 명이었어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>총 4명으로 협업하며 역할을 분담했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 3</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%">20%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:55:48.052846</div>
+                    <p><strong>진행률 분석:</strong> 상황 부분은 확인되었지만, 문제와 해결 과정에 대한 구체적인 정보가 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>프로젝트 중의 어려움이나 팀에서 문제 있었던 상황 있어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>데이터 일관성 문제, 함께 해결책 논의 후 해결했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 4</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:56:15.871093</div>
+                    <p><strong>진행률 분석:</strong> 학생이 상황과 문제에 대해 일부 설명했지만, 분석 및 행동, 결과, 교훈 항목에 대한 정보가 부족합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>데이터 일관성 문제 어떻게 해결했어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>트랜잭션, 동시성 제어 구현으로 데이터 일관성 확보했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 5</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:56:47.381470</div>
+                    <p><strong>진행률 분석:</strong> 상황과 문제 항목이 완성되었습니다. 문제 해결 과정, 결과 및 교훈이 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>해결책 논의는 어떻게 진행됐어? 그리고 기한 내에 완료됐어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>팀원 함께 브레인스토밍 후 스프린트로 일정 조정했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 6</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%">60%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:57:13.282843</div>
+                    <p><strong>진행률 분석:</strong> 상황과 문제 상황, 해결 방법이 설명되었으나 결과와 교훈에 대한 정보가 부족합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>결과물의 품질과 완성 과정에서 배운 점은 뭐였어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>코드 리뷰로 품질 향상, 팀 협업 중요성 배움.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 7</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%">60%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:57:35.862459</div>
+                    <p><strong>진행률 분석:</strong> 상황과 문제, 분석 및 행동까지의 답변이 충분히 수집되었습니다. 결과와 교훈에 대한 정보가 부족합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>프로젝트 완료 후 결과가 어땠어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>성공적 배포, 사용자 피드백 긍정적.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 8</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%">80%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:58:03.568609</div>
+                    <p><strong>진행률 분석:</strong> 학생이 문제 상황 및 해결 과정에 대해 잘 설명했습니다. 하지만 교훈 부분은 추가 설명이 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>이 프로젝트 하면서 협업의 중요성 느낀 순간 있어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>문제 해결과 창의적 해결책 공유가 중요했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 9</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%">80%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:58:38.921092</div>
+                    <p><strong>진행률 분석:</strong> 현재 상황(Context), 문제(Obstacle), 해결책(Solution), 결과(Outcome)는 충분히 설명되었으며, 교훈 및 적용(Value)의 세부사항이 조금 더 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>협업 경험에서 무엇을 가장 배우고 느꼈어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>의견 공유가 혁신과 팀 성과 향상에 필수적임을 배웠습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 10</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%">100%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T07:59:25.169278</div>
+                    <p><strong>진행률 분석:</strong> 모든 항목이 완료되었으며 학생의 협업 경험에 대한 상세한 정보가 제공되었습니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>좋아! 자기소개서 작성에 필요한 정보가 다 모였어. 같이 정리해보자 :)</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>성공적 협업과 문제해결로 성장과 혁신 실감했습니다.</pre>
+                </div>
+            </div></div>
+        <div class="step">
+            <div class="step-header">🔄 3단계: 답변 흐름 생성</div>
+            <div class="step-content">
+    
+                <div class="question-answer">
+                    <div class="question-title">질문 1: 공동의 목표를 달성하기 위해 타인과 힘을 합쳐 노력했던 경험을 기술해주세요.</div>
+                    <div class="success">✅ 흐름 생성 성공</div>
+                    <div class="meta-info">생성 시간: 2025-06-30T07:59:32.438877</div>
+                    <pre>| 단계 | 항목 | 설명 | 체크포인트 |
+| --- | --- | --- | --- |
+| ① 요약 | 한 문장 핵심 요약 | REST API 개발을 위한 온라인 쇼핑몰 프로젝트에서 데이터 일관성 문제를 협업을 통해 해결한 경험 | - 프로젝트 경험과 협업의 중요성 포함 |
+| ② 상황 | 협업 배경과 나의 역할 | 백엔드 프로젝트로 총 4명으로 팀을 구성하고 역할을 분담하여 REST API 개발 | - 팀원 수와 역할 분담 명확히 |
+| ③ 문제 인식 | 데이터 일관성 문제의 본질 인식 | 트랜잭션과 동시성 제어 문제로 인해 데이터 일관성이 확보되지 않았음을 인식 | - 문제의 중대성 설명 |
+| ④ 해결 행동 | 문제 해결을 위한 본인의 소통/조율 노력 | 브레인스토밍을 통해 팀원들과 아이디어를 공유하고, 스프린트를 조정해 해결책을 논의 | - 팀원과의 소통 및 협업 강조 |
+| ⑤ 결과 | 협업 성과 및 관계 변화 | 성공적인 배포와 긍정적인 사용자 피드백을 통해 팀의 성과가 향상되었음을 정성적으로 표현 | - 사용자 피드백과 결과 반영 |
+| ⑥ 느낀 점 | 협업의 본질, 소통 방식 변화 | 의견 공유가 혁신과 팀 성과 향상에 필수적이라는 것을 깨달음 | - 중요한 배움의 순간 강조 |
+| ⑦ 직무 연계 | 조직생활에서의 팀워크 실천 포부 | 대규모 트래픽 처리와 마이크로서비스 설계 시에도 협업을 통해 더욱 효과적인 결과를 창출할 수 있을 것임을 포부 | - 직무와의 연관성 명확히 |</pre>
+                </div>
+            </div></div>
+        <div class="step">
+            <div class="step-header">✍️ 4단계: 최종 답변 생성</div>
+            <div class="step-content">
+    
+                <div class="question-answer">
+                    <div class="question-title">질문 1: 공동의 목표를 달성하기 위해 타인과 힘을 합쳐 노력했던 경험을 기술해주세요.</div>
+                    <div class="success">✅ 답변 생성 성공</div>
+                    <div class="meta-info">생성 시간: 2025-06-30T08:00:03.544719</div>
+                    
+                    <h4>📝 최종 답변:</h4>
+                    <pre>```markdown [온라인 쇼핑몰 프로젝트에서 협업으로 데이터 일관성 문제 해결]
+온라인 쇼핑몰의 REST API 개발을 진행하며 팀 협업을 통해 데이터 일관성 문제를 해결한 경험이 있습니다. 프로젝트는 총 4명으로 구성된 백엔드 팀에서 진행되었고, 역할을 분담하여 각자의 책임을 명확히 했습니다.
+
+프로젝트 도중 트랜잭션과 동시성 제어 문제로 데이터가 일관되지 않다는 것을 인식했습니다. 이는 시스템 안정성과 사용자 경험에 큰 영향을 미칠 수 있는 중대한 문제였습니다. 이를 해결하기 위해 팀원들과 브레인스토밍을 진행하며 다양한 아이디어를 공유했고, 스프린트를 조정하여 해결책을 논의했습니다. 이 과정에서 적극적으로 의견을 제안하고, 팀원들과의 소통을 통해 최적의 해결책을 도출하였습니다.
+
+결과적으로 성공적으로 API를 배포할 수 있었고, 사용자로부터 긍정적인 피드백을 받으며 프로젝트 목표를 달성했습니다. 이 경험을 통해 협업과 의견 공유가 혁신과 팀 성과 향상에 필수적이라는 것을 깊이 깨달았습니다. 
+
+카카오에 입사하여 대규모 트래픽 처리와 마이크로서비스 설계 시에도 협업을 통해 더욱 효과적인 결과를 창출할 수 있을 것이라 확신합니다. 신입 개발자로서 팀의 목표를 달성하는 데 기여할 것입니다. ```
+</pre>
+                    
+                    <h4>🔄 사용된 답변 흐름:</h4>
+                    <pre>| 단계 | 항목 | 설명 | 체크포인트 |
+| --- | --- | --- | --- |
+| ① 요약 | 한 문장 핵심 요약 | REST API 개발을 위한 온라인 쇼핑몰 프로젝트에서 데이터 일관성 문제를 협업을 통해 해결한 경험 | - 프로젝트 경험과 협업의 중요성 포함 |
+| ② 상황 | 협업 배경과 나의 역할 | 백엔드 프로젝트로 총 4명으로 팀을 구성하고 역할을 분담하여 REST API 개발 | - 팀원 수와 역할 분담 명확히 |
+| ③ 문제 인식 | 데이터 일관성 문제의 본질 인식 | 트랜잭션과 동시성 제어 문제로 인해 데이터 일관성이 확보되지 않았음을 인식 | - 문제의 중대성 설명 |
+| ④ 해결 행동 | 문제 해결을 위한 본인의 소통/조율 노력 | 브레인스토밍을 통해 팀원들과 아이디어를 공유하고, 스프린트를 조정해 해결책을 논의 | - 팀원과의 소통 및 협업 강조 |
+| ⑤ 결과 | 협업 성과 및 관계 변화 | 성공적인 배포와 긍정적인 사용자 피드백을 통해 팀의 성과가 향상되었음을 정성적으로 표현 | - 사용자 피드백과 결과 반영 |
+| ⑥ 느낀 점 | 협업의 본질, 소통 방식 변화 | 의견 공유가 혁신과 팀 성과 향상에 필수적이라는 것을 깨달음 | - 중요한 배움의 순간 강조 |
+| ⑦ 직무 연계 | 조직생활에서의 팀워크 실천 포부 | 대규모 트래픽 처리와 마이크로서비스 설계 시에도 협업을 통해 더욱 효과적인 결과를 창출할 수 있을 것임을 포부 | - 직무와의 연관성 명확히 |</pre>
+                </div>
+            </div></div>
+    </body>
+    </html>
+    
