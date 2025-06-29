@@ -1,0 +1,336 @@
+
+    <!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>case_022: 카카오 - 백엔드 개발자</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                margin: 0;
+                padding: 20px;
+                background-color: #f5f5f5;
+                line-height: 1.6;
+            }
+            .header {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .info-card {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 30px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .step {
+                background: white;
+                margin-bottom: 25px;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            .step-header {
+                background: #34495e;
+                color: white;
+                padding: 15px 20px;
+                font-weight: bold;
+                font-size: 18px;
+            }
+            .step-content {
+                padding: 20px;
+            }
+            .chat-turn {
+                background: #ecf0f1;
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border-left: 4px solid #3498db;
+            }
+            .progress-bar {
+                background: #ecf0f1;
+                height: 25px;
+                border-radius: 12px;
+                overflow: hidden;
+                margin: 10px 0;
+                position: relative;
+            }
+            .progress-fill {
+                background: linear-gradient(90deg, #4CAF50, #8BC34A);
+                height: 100%;
+                transition: width 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-weight: bold;
+            }
+            .error {
+                background: #f8d7da;
+                color: #721c24;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #dc3545;
+            }
+            .success {
+                background: #d4edda;
+                color: #155724;
+                padding: 15px;
+                border-radius: 8px;
+                margin: 10px 0;
+                border-left: 4px solid #28a745;
+            }
+            .question-answer {
+                background: #f8f9fa;
+                padding: 20px;
+                margin: 15px 0;
+                border-radius: 8px;
+                border-left: 4px solid #007bff;
+            }
+            .question-title {
+                font-weight: bold;
+                color: #2c3e50;
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+            pre {
+                background: #f1f3f4;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                border: 1px solid #e9ecef;
+                font-size: 14px;
+            }
+            .meta-info {
+                background: #e9ecef;
+                padding: 10px 15px;
+                border-radius: 5px;
+                margin: 10px 0;
+                font-size: 14px;
+                color: #6c757d;
+            }
+            .status-badge {
+                display: inline-block;
+                padding: 5px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: bold;
+                margin: 5px 0;
+            }
+            .status-success {
+                background: #28a745;
+                color: white;
+            }
+            .status-error {
+                background: #dc3545;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>✅ case_022</h1>
+            <h2>카카오 - 백엔드 개발자</h2>
+            <p>생성 시간: 2025년 06월 30일 08:03:27</p>
+        </div>
+        
+        <div class="info-card">
+            <h2>📋 테스트 케이스 정보</h2>
+            <p><strong>케이스 ID:</strong> case_022</p>
+            <p><strong>회사명:</strong> 카카오</p>
+            <p><strong>직무:</strong> 백엔드 개발자</p>
+            <p><strong>글자수 제한:</strong> 300자</p>
+            <p><strong>처리 시간:</strong> 203.72초</p>
+            <p><strong>상태:</strong> <span class="status-badge status-success">성공</span></p>
+            
+            <h3>📄 JD (Job Description)</h3>
+            <pre>대규모 트래픽 처리, 마이크로서비스 설계 및 운영, RESTful API 개발을 담당합니다.</pre>
+            
+            <h3>❓ 자기소개서 질문들</h3>
+            <ol>
+    <li>공동의 목표를 달성하기 위해 타인과 힘을 합쳐 노력했던 경험을 기술해주세요.</li>
+            </ol>
+        </div>
+    
+        <div class="step">
+            <div class="step-header">📝 1단계: 가이드 생성</div>
+            <div class="step-content">
+    
+                <div class="success">✅ 가이드 생성 성공</div>
+                <div class="meta-info">생성 시간: 2025-06-30T08:00:06.122353</div>
+                <pre>| 단계 | 설명 |
+| --- | --- |
+| ① 상황 설정 | 팀 프로젝트의 배경과 목표: 대규모 웹 서비스 구축을 위한 팀 구성, 역할 분담 등의 맥락 |
+| ② 도전 과제 | 프로젝트 진행 중 발생한 문제: 개발 일정 지연, 팀원 간의 의사소통 문제 등 |
+| ③ 해결 과정 | 팀원들과 소통하여 문제를 분석하고, 주간 회의를 통해 진행 상황 공유 및 역할 재조정 진행 |
+| ④ 결과 | 문제를 해결한 후 진행 상황의 개선, 최종 목표를 기한 내에 달성한 것과 팀워크의 향상 |
+| ⑤ 배운 점 | 협업을 통한 시너지 효과를 경험하며, 다양한 의견을 존중하는 태도의 중요성을 인식 |</pre>
+            </div></div>
+        <div class="step">
+            <div class="step-header">💬 2단계: 채팅 시뮬레이션</div>
+            <div class="step-content">
+    <div class="success">✅ 총 8개의 대화 턴 완료</div>
+                <div class="chat-turn">
+                    <h4>턴 1</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%">0%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:00:08.509919</div>
+                    <p><strong>진행률 분석:</strong> 대화를 시작해야 합니다. 학생의 팀 프로젝트 경험을 들어야 합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>학부 시절에 진행했던 팀 프로젝트는 뭐 있었어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>클라우드 기반 추천 시스템 구축 프로젝트가 있었습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 2</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%">20%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:00:50.733566</div>
+                    <p><strong>진행률 분석:</strong> 상황 설정 단계는 완료되었어. 프로젝트 배경과 목표가 충분히 파악됨.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>프로젝트 진행 중 어떤 도전 과제가 있었어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>마이크로서비스 통합 및 성능 최적화가 큰 과제였습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 3</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:01:29.075822</div>
+                    <p><strong>진행률 분석:</strong> 상황 설정과 도전 과제를 들었으므로, 해결 과정 및 결과가 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>어떻게 문제를 해결했는지 자세히 말해줄 수 있어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>성능 최적화 위해 로드 밸런싱, 캐싱 전략을 활용했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 4</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:01:49.926260</div>
+                    <p><strong>진행률 분석:</strong> 상황 설정, 도전 과제는 완료. 해결 과정에 대한 구체적 정보가 필요.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>어떻게 성능 최적화를 팀과 함께 논의했어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>팀원들과 성능 리포트 분석 후 최적화 방안 논의했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 5</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%">40%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:02:02.835861</div>
+                    <p><strong>진행률 분석:</strong> ①, ③ 항목은 완료되었으나, ②, ④, ⑤ 항목에 대한 추가 정보가 필요합니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>최적화 방안 논의 후, 팀원들과 역할 재조정은 어떻게 했어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>팀 강점에 맞춰 맡은 역할을 재조정했습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 6</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%">60%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:02:17.151614</div>
+                    <p><strong>진행률 분석:</strong> 해결 과정의 세부 사항을 확보했습니다. 결과와 배운 점이 아직 다뤄지지 않았습니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>결과적으로 프로젝트의 최종 목표는 어떻게 되었어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>목표 달성, 클라이언트 응답 시간 30% 감소 성공.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 7</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 80%">80%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:02:29.257573</div>
+                    <p><strong>진행률 분석:</strong> 상황 설정, 도전 과제, 해결 과정, 결과 모두 충족. 협업의 시너지 효과 배움 만 필요.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>협업하며 배운 점은 어떤 것들이었어?</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>효과적인 의사소통과 강점 활용의 중요성을 배웠습니다.</pre>
+                </div>
+            
+                <div class="chat-turn">
+                    <h4>턴 8</h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%">100%</div>
+                    </div>
+                    <div class="meta-info">시간: 2025-06-30T08:02:51.644391</div>
+                    <p><strong>진행률 분석:</strong> 모든 답변 가이드 항목이 충분히 충족되었다고 판단됩니다. 답변이 각 항목에 대해 구체적입니다.</p>
+                    <p><strong>면접관 질문:</strong></p>
+                    <pre>좋아, 철수야! 모든 항목 완벽해, 자기소개서 작성할게. 준비됐어? :)</pre>
+                    <p><strong>학생 답변:</strong></p>
+                    <pre>준비됐습니다! 감사합니다, 시작하겠습니다.</pre>
+                </div>
+            </div></div>
+        <div class="step">
+            <div class="step-header">🔄 3단계: 답변 흐름 생성</div>
+            <div class="step-content">
+    
+                <div class="question-answer">
+                    <div class="question-title">질문 1: 공동의 목표를 달성하기 위해 타인과 힘을 합쳐 노력했던 경험을 기술해주세요.</div>
+                    <div class="success">✅ 흐름 생성 성공</div>
+                    <div class="meta-info">생성 시간: 2025-06-30T08:02:59.313868</div>
+                    <pre>| 단계       | 항목                     | 설명                                                                         | 체크포인트                                                    |
+|-----------|------------------------|------------------------------------------------------------------------------|------------------------------------------------------------|
+| ① 요약     | 한 문장 핵심 요약           | 클라우드 기반 추천 시스템 구축 프로젝트를 통해 성능 최적화를 달성한 경험을 요약한다.       | - 프로젝트명 + 역할 + 주요 성과 포함                            |
+| ② 상황     | 협업 배경과 나의 역할      | 학부 시절 클라우드 기반 추천 시스템 구축 프로젝트에서 팀의 일원으로 역할을 맡았음을 설명한다. | - 기간/장소/프로젝트 설명                                     |
+| ③ 문제 인식 | 팀 내 도전과제 및 장애 인식  | 프로젝트 중 성능 최적화가 큰 도전과제였으며, 문제의 본질이 왜 중요한지 서술한다.            | - 명확한 문제 인식 과정 포함                                  |
+| ④ 해결 행동 | 본인의 소통 및 조율 노력     | 팀원들과 성능 리포트를 분석하고, 최적화 방안을 논의하는 과정에서 본인이 어떻게 소통했는지 설명한다. | - 역할 재조정과 협의 과정 중심                                |
+| ⑤ 결과     | 협업 성과 및 관계 변화      | 클라이언트의 응답 시간이 30% 감소하였고, 협업을 통해 목표를 달성한 후 팀의 유대감이 어떻게 변화했는지 서술한다. | - 수치적 성과 및 긍정적 변화 포함                            |
+| ⑥ 느낀 점   | 팀워크에 대한 인식 변화      | 의사소통의 중요성과 팀원의 강점을 활용하는 것이 어떤 의미로 다가왔는지를 진솔하게 작성한다.  | - 개인적 성찰 포함                                           |
+| ⑦ 직무 연계 | 조직생활에서의 팀워크 실천 포부 | 비슷한 상황에서의 협업 경험이 카카오의 대규모 트래픽 처리 및 RESTful API 개발에서 어떻게 기여할지를 연결한다. | - 지원 직무의 특성과 연결                                    |</pre>
+                </div>
+            </div></div>
+        <div class="step">
+            <div class="step-header">✍️ 4단계: 최종 답변 생성</div>
+            <div class="step-content">
+    
+                <div class="question-answer">
+                    <div class="question-title">질문 1: 공동의 목표를 달성하기 위해 타인과 힘을 합쳐 노력했던 경험을 기술해주세요.</div>
+                    <div class="success">✅ 답변 생성 성공</div>
+                    <div class="meta-info">생성 시간: 2025-06-30T08:03:17.820501</div>
+                    
+                    <h4>📝 최종 답변:</h4>
+                    <pre>```markdown [클라우드 기반 추천 시스템 구축에서 팀워크로 성능 최적화 성과 달성]
+학부 시절, 클라우드 기반 추천 시스템 구축 프로젝트에 참여하며 팀의 일원으로 성능 최적화를 성공적으로 이끌었습니다. 이 프로젝트는 마이크로서비스 통합을 통해 사용자에게 최적화된 추천을 제공하는 것이 목표였습니다. 그러나 프로젝트 중 성능 최적화가 큰 도전 과제였으며, 클라이언트의 응답 속도를 개선하는 것이 서비스 품질에 중대한 영향을 미쳤습니다.
+
+팀원들과 성능 리포트를 면밀히 분석한 후, 문제를 해결하기 위해 로드 밸런싱과 캐싱 전략을 활용한 최적화 방안을 논의했습니다. 팀원 각각의 강점을 고려하여 역할을 재조정하고, 효율적인 의사소통을 통해 실질적인 해결책을 모색했습니다. 그 결과, 클라이언트의 응답 시간이 30% 감소하였으며, 프로젝트 목표를 달성할 수 있었습니다. 
+
+이를 통해 효과적인 의사소통과 팀원의 강점을 활용하는 것이 협업의 핵심임을 깊이 깨달을 수 있었습니다. 이러한 경험은 대규모 트래픽 처리 및 RESTful API 개발에서 신속하고도 효율적인 협업이 요구되는 카카오에서, 저의 역량을 최대한 발휘하여 기여할 기반이 될 것입니다. ```
+</pre>
+                    
+                    <h4>🔄 사용된 답변 흐름:</h4>
+                    <pre>| 단계       | 항목                     | 설명                                                                         | 체크포인트                                                    |
+|-----------|------------------------|------------------------------------------------------------------------------|------------------------------------------------------------|
+| ① 요약     | 한 문장 핵심 요약           | 클라우드 기반 추천 시스템 구축 프로젝트를 통해 성능 최적화를 달성한 경험을 요약한다.       | - 프로젝트명 + 역할 + 주요 성과 포함                            |
+| ② 상황     | 협업 배경과 나의 역할      | 학부 시절 클라우드 기반 추천 시스템 구축 프로젝트에서 팀의 일원으로 역할을 맡았음을 설명한다. | - 기간/장소/프로젝트 설명                                     |
+| ③ 문제 인식 | 팀 내 도전과제 및 장애 인식  | 프로젝트 중 성능 최적화가 큰 도전과제였으며, 문제의 본질이 왜 중요한지 서술한다.            | - 명확한 문제 인식 과정 포함                                  |
+| ④ 해결 행동 | 본인의 소통 및 조율 노력     | 팀원들과 성능 리포트를 분석하고, 최적화 방안을 논의하는 과정에서 본인이 어떻게 소통했는지 설명한다. | - 역할 재조정과 협의 과정 중심                                |
+| ⑤ 결과     | 협업 성과 및 관계 변화      | 클라이언트의 응답 시간이 30% 감소하였고, 협업을 통해 목표를 달성한 후 팀의 유대감이 어떻게 변화했는지 서술한다. | - 수치적 성과 및 긍정적 변화 포함                            |
+| ⑥ 느낀 점   | 팀워크에 대한 인식 변화      | 의사소통의 중요성과 팀원의 강점을 활용하는 것이 어떤 의미로 다가왔는지를 진솔하게 작성한다.  | - 개인적 성찰 포함                                           |
+| ⑦ 직무 연계 | 조직생활에서의 팀워크 실천 포부 | 비슷한 상황에서의 협업 경험이 카카오의 대규모 트래픽 처리 및 RESTful API 개발에서 어떻게 기여할지를 연결한다. | - 지원 직무의 특성과 연결                                    |</pre>
+                </div>
+            </div></div>
+    </body>
+    </html>
+    
