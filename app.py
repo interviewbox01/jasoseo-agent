@@ -11,7 +11,7 @@ import gradio as gr
 import yaml
 import json
 import re
-from chat.llm_functions import get_interviewer_response, get_student_response, generate_cover_letter_response
+from chat.llm_functions import get_interviewer_response, get_student_response, generate_cover_letter_response, generate_memory
 from utils import parse_json_from_response
 from guide_generation.llm_functions import generate_guide as create_guide_from_llm
 from answer_flow_generation.llm_functions import generate_answer_flow
@@ -82,6 +82,9 @@ def bot_response(history, shared_info, progress=gr.Progress()):
     # word_limit 기본값 설정 (혹시 없을 경우를 대비)
     if 'word_limit' not in format_info:
         format_info['word_limit'] = 300
+    # memory 기본값 설정
+    if 'memory' not in format_info:
+        format_info['memory'] = ""
 
     history[-1][1] = ""
     full_response = ""
@@ -128,6 +131,9 @@ def generate_ai_reply(history, shared_info, progress=gr.Progress()):
     # word_limit 기본값 설정 (혹시 없을 경우를 대비)
     if 'word_limit' not in format_info:
         format_info['word_limit'] = 300
+    # memory 기본값 설정
+    if 'memory' not in format_info:
+        format_info['memory'] = ""
 
     student_answer_json = ""
     history.append(["", None])
@@ -152,7 +158,7 @@ def generate_all_cover_letters(history, shared_info, progress=gr.Progress()):
     if not history:
         empty_outputs = [gr.update(value="면접 대화가 없습니다.")] * len(shared_info.get('questions', []))
         empty_guidelines = [gr.update(value="")] * len(shared_info.get('questions', []))
-        return empty_outputs + empty_guidelines + [gr.update()]
+        return empty_outputs + empty_guidelines + [gr.update(), gr.update()]
 
     # history -> conversation_history 형식 변환
     conversation_str = ""
@@ -169,8 +175,8 @@ def generate_all_cover_letters(history, shared_info, progress=gr.Progress()):
     
     for i, question in enumerate(shared_info.get('questions', [])):
         # 1단계: Answer Flow Generation
-        progress_text = f"자기소개서 생성 진행률: {int((i / total_questions) * 50)}% (답변 흐름 생성 중...)"
-        yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True)]
+        progress_text = f"자기소개서 생성 진행률: {int((i / total_questions) * 40)}% (답변 흐름 생성 중...)"
+        yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True), gr.update()]
         
         flow_result, _ = generate_answer_flow(
             question=question,
@@ -184,8 +190,8 @@ def generate_all_cover_letters(history, shared_info, progress=gr.Progress()):
         guidelines[i] = flow_text  # 가이드라인 저장
         
         # 2단계: Cover Letter Response Generation
-        progress_text = f"자기소개서 생성 진행률: {int((i / total_questions) * 50 + 25)}% (답변 생성 중...)"
-        yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True)]
+        progress_text = f"자기소개서 생성 진행률: {int((i / total_questions) * 40 + 30)}% (답변 생성 중...)"
+        yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True), gr.update()]
         
         full_response = ""
         word_limit = shared_info.get('word_limit', 300)  # shared_info에서 word_limit 가져오기
@@ -201,9 +207,9 @@ def generate_all_cover_letters(history, shared_info, progress=gr.Progress()):
                 cleaned_response = clean_markdown_response(full_response)
                 outputs[i] = cleaned_response
             
-            overall_progress_val = (i + 0.75) / total_questions
+            overall_progress_val = (i + 0.75) / total_questions * 0.7  # 70%까지만 (나머지 30%는 memory 생성)
             progress_text = f"자기소개서 생성 진행률: {int(overall_progress_val*100)}%"
-            yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True)]
+            yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True), gr.update()]
 
         # 최종 파싱 및 정리
         final_data = parse_json_from_response(full_response)
@@ -216,8 +222,29 @@ def generate_all_cover_letters(history, shared_info, progress=gr.Progress()):
             cleaned_response = clean_markdown_response(full_response)
             outputs[i] = cleaned_response
 
+    # 3단계: Memory 생성
+    progress_text = "자기소개서 생성 진행률: 85% (대화 메모리 생성 중...)"
+    yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True), gr.update()]
+    
+    memory_content = ""
+    current_memory = shared_info.get('memory', '')
+    for chunk in generate_memory(conversation_str, current_memory):
+        memory_content += chunk
+    
+    # Memory JSON 파싱
+    memory_text = memory_content
+    try:
+        parsed_memory = parse_json_from_response(memory_content)
+        if parsed_memory and 'memory' in parsed_memory:
+            memory_text = parsed_memory['memory']
+    except:
+        pass
+    
+    progress_text = "자기소개서 생성 진행률: 100% (완료)"
+    yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(value=progress_text, visible=True), gr.update(value=memory_text)]
+
     # 완료
-    yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(visible=False)]
+    yield [gr.update(value=o) for o in outputs] + [gr.update(value=g) for g in guidelines] + [gr.update(visible=False), gr.update(value=memory_text)]
 
 def update_guide_and_info(company, position, jd, questions_str, word_limit):
     guide_json, _ = create_guide_from_llm(questions_str, jd, company, "신입") # experience_level is hardcoded for now
@@ -234,7 +261,8 @@ def update_guide_and_info(company, position, jd, questions_str, word_limit):
         "jd": jd,
         "questions": [q.strip() for q in questions_str.strip().split('\n') if q.strip()],
         "guide": guide_text,
-        "word_limit": word_limit
+        "word_limit": word_limit,
+        "memory": ""
     })
     
     # Return new state and update for the guide display
@@ -310,6 +338,11 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
                         with gr.TabItem("답변 가이드라인"):
                             guideline = gr.Markdown(value="가이드라인이 생성되면 여기에 표시됩니다.")
                             guideline_outputs.append(guideline)
+            
+            # Memory 표시 컴포넌트
+            with gr.Accordion("💭 대화 메모리", open=False):
+                gr.Markdown("대화 내용을 바탕으로 생성된 메모리입니다.")
+                memory_display = gr.Markdown(value="대화 메모리가 생성되면 여기에 표시됩니다.", label="대화 메모리")
 
     # Event Handlers
     generate_guide_btn.click(
@@ -322,7 +355,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
     msg.submit(user_submit, [msg, chatbot], [msg, chatbot]).then(bot_response, [chatbot, shared_info], [chatbot, progress_display, reason_display])
     ai_reply_btn.click(generate_ai_reply, [chatbot, shared_info], [chatbot, progress_display, reason_display])
     clear_btn.click(lambda: ([], "자기소개서 완성도: 0%", ""), None, [chatbot, progress_display, reason_display], queue=False)
-    generate_btn.click(generate_all_cover_letters, [chatbot, shared_info], cover_letter_outputs + guideline_outputs + [cover_letter_progress_display])
+    generate_btn.click(generate_all_cover_letters, [chatbot, shared_info], cover_letter_outputs + guideline_outputs + [cover_letter_progress_display, memory_display])
 
 if __name__ == "__main__":
     demo.launch(share=True)
