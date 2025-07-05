@@ -88,6 +88,21 @@
 모범답안 내용...
 \`\`\`
 ```
+
+#### 🔑 Key: `Memory` (대화 메모리 생성)
+**📥 Input Variables:**
+- `{memory}`: 이전 메모리 내용
+- `{conversation}`: 대화 내용
+
+**📤 Output Format:** (JSON)
+```
+```json
+{
+  "memory": "새로운 memory 내용"
+}
+\`\`\`
+```
+
 ---
 
 ### 2. 📋 Guide Generation (`guide_generation/prompt.yaml`)
@@ -331,6 +346,7 @@ graph TD
 | **Chat** | Interviewer | 15개 | JSON | ❌ | 면접관 질문 생성 |
 | | Student | 9개 | JSON | ❌ | 학생 답변 생성 |
 | | CoverLetter | 7개 | Markdown | ❌ | 자기소개서 작성 |
+| | Memory | 2개 | JSON | ❌ | 대화 메모리 생성 |
 | **Guide Generation** | prompt | 4개 | Markdown Table | ❌ | 답변 구조 생성 |
 | **JD Recommendation** | prompt | 3개 | JSON | ❌ | JD 생성 |
 | **Answer Flow** | prompt | 5개 | Markdown Table | ❌ | 답변 흐름 생성 |
@@ -347,7 +363,7 @@ graph TD
 ## 🎯 핵심 특징
 
 ### 1. **다양한 출력 형식**
-- **JSON (8개 키)**: 구조화된 데이터 반환
+- **JSON (9개 키)**: 구조화된 데이터 반환
 - **Markdown Table (2개 키)**: 사람이 읽기 쉬운 테이블 형식
 - **Markdown (1개 키)**: 자유 형식 마크다운 텍스트
 - **Text (1개 키)**: 단순 텍스트
@@ -367,7 +383,8 @@ graph TD
 
 ### 5. **복잡도 다양성**
 - **최고 복잡도**: Chat-Interviewer (15개 변수)
-- **중간 복잡도**: Chat-Student (9개), Answer Flow (5개)
+- **중간 복잡도**: Chat-Student (9개), Chat-CoverLetter (7개), Answer Flow (5개)
+- **낮은 복잡도**: Guide Generation (4개), JD/Question Recommendation (3개), Chat-Memory (2개)
 - **최저 복잡도**: Company Size (1개 변수)
 
 

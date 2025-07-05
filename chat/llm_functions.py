@@ -19,7 +19,8 @@ except Exception as e:
     prompts = {
         "Interviewer": "You are a job interviewer.",
         "Student": "You are a job applicant.",
-        "CoverLetter": "Write a cover letter based on the conversation."
+        "CoverLetter": "Write a cover letter based on the conversation.",
+        "Memory": "Create a memory based on the conversation history."
     }
 
 def get_interviewer_response(example_info):
@@ -99,4 +100,45 @@ def generate_cover_letter_response(question, conversation_history, example_info,
         stream=True
     )
     for chunk in response_stream:
-        yield chunk.choices[0].delta.content or "" 
+        yield chunk.choices[0].delta.content or ""
+
+def generate_memory(conversation_history, current_memory=""):
+    """
+    대화 기록을 바탕으로 메모리를 생성합니다.
+    """
+    # 대화 기록을 문자열로 변환
+    if isinstance(conversation_history, list):
+        conversation_text = "\n".join([f"{speaker}: {content}" for speaker, content in conversation_history])
+    else:
+        conversation_text = conversation_history
+    
+    # Memory 프롬프트 사용
+    prompt = prompts.get("Memory", "").format(
+        conversation=conversation_text,
+        memory=current_memory
+    )
+    
+    response_stream = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": prompt}],
+        stream=True
+    )
+    
+    full_response = ""
+    for chunk in response_stream:
+        chunk_content = chunk.choices[0].delta.content or ""
+        full_response += chunk_content
+        yield chunk_content
+        
+    # 최종 응답에서 JSON 파싱 시도
+    try:
+        import json
+        import re
+        json_match = re.search(r'\{.*\}', full_response, re.DOTALL)
+        if json_match:
+            parsed_data = json.loads(json_match.group())
+            return parsed_data.get('memory', full_response)
+    except:
+        pass
+    
+    return full_response 
